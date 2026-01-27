@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "692314871844",
+    "project_id": "cab-system-7dab6",
+    "storage_bucket": "cab-system-7dab6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692314871844:android:7a3fc9d62cbad299bce0b1",
+        "android_client_info": {
+          "package_name": "com.cabsystem.super_wheels"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBE5LCY4Vf6alK6k9g5dnnAlAnTTpt7Cok"
+        },
+        {
+          "current_key": "AIzaSyAivMwcWmaw5JeY4brdtm553sy-pkoCEnU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692314871844:android:f54c1ba86d5e0a1bbce0b1",
+        "android_client_info": {
+          "package_name": "com.cabsystem.superwheels"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBE5LCY4Vf6alK6k9g5dnnAlAnTTpt7Cok"
+        },
+        {
+          "current_key": "AIzaSyAivMwcWmaw5JeY4brdtm553sy-pkoCEnU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692314871844:android:0119d030e595b3e4bce0b1",
+        "android_client_info": {
+          "package_name": "com.example.flutter_otp_module"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBE5LCY4Vf6alK6k9g5dnnAlAnTTpt7Cok"
+        },
+        {
+          "current_key": "AIzaSyAivMwcWmaw5JeY4brdtm553sy-pkoCEnU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
