@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:super_wheels_customer_app/src/myRide/controller/myride_controller.dart';
 import 'package:super_wheels_customer_app/src/myRide/view/ride_details.dart';
@@ -180,6 +183,8 @@ class MyRideScreen extends StatelessWidget {
                         return GestureDetector(
                           onTap: () {
                             pushRoute(context, RideDetailsScreen());
+                            myride.controller =
+                                Completer<GoogleMapController>();
                           },
                           child: Container(
                             width: double.infinity,

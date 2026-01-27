@@ -26,7 +26,7 @@ class MyrideController extends ChangeNotifier {
     zoom: 13,
   );
 
-  final List<Marker> marker = [];
+  final Set<Marker> marker = {};
 
   final Set<Polyline> polylines = {};
 
@@ -117,7 +117,8 @@ class MyrideController extends ChangeNotifier {
     await mapController.animateCamera(
       CameraUpdate.newLatLngBounds(bounds, padding),
     );
-    await drawRoutePolyline();
+    //await drawRoutePolyline();
+    setPickupDropMarkers();
     notifyListeners();
   }
 
@@ -125,5 +126,33 @@ class MyrideController extends ChangeNotifier {
     isSceduledRide = !isSceduledRide;
     clearFilters();
     notifyListeners();
+  }
+
+  void setPickupDropMarkers() {
+    marker.clear();
+
+    // Pickup marker
+    marker.add(
+      Marker(
+        markerId: const MarkerId('pickup'),
+        position: LatLng(currentLat, currentLng),
+        infoWindow: const InfoWindow(title: 'Pickup'),
+        icon: BitmapDescriptor.defaultMarkerWithHue(
+          BitmapDescriptor.hueCyan, // green for start
+        ),
+      ),
+    );
+
+    // Drop marker
+    marker.add(
+      Marker(
+        markerId: const MarkerId('drop'),
+        position: LatLng(destinationLat, destinationlng),
+        infoWindow: const InfoWindow(title: 'Drop'),
+        icon: BitmapDescriptor.defaultMarkerWithHue(
+          BitmapDescriptor.hueRed, // red for end
+        ),
+      ),
+    );
   }
 }
