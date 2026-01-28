@@ -26,4 +26,7 @@ class AssetStore {
   String aboutUsIcon = "$assetPath/about_us.png";
   String supportIcon = "$assetPath/support.png";
   String dlAccountIcon = "$assetPath/delete_account.png";
+  String locationMark = "$assetPath/location_mark.png";
+  String money = "$assetPath/money.png";
+  String creditCard = "$assetPath/credit-card.png";
 }
