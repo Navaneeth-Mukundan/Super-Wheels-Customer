@@ -1,10 +1,15 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:super_wheels_customer_app/src/booking/controller/booking_controller.dart';
 import 'package:super_wheels_customer_app/src/home/controller/home_controller.dart';
 import 'package:super_wheels_customer_app/src/home/widget/screen_gradient_widget.dart';
 import 'package:super_wheels_customer_app/src/home/widget/search_field_widget.dart';
 import 'package:super_wheels_customer_app/src/onboarding/view/splash_screen.dart';
 import 'package:super_wheels_customer_app/src/utils/constants/asset_store.dart';
+import 'package:super_wheels_customer_app/src/utils/constants/screen_route.dart';
 import 'package:super_wheels_customer_app/src/utils/constants/space_helper.dart';
 import 'package:super_wheels_customer_app/src/utils/themes/styles/font_style.dart';
 
@@ -125,8 +130,8 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
-        body: Consumer<HomeController>(
-          builder: (context, controller, _) {
+        body: Consumer2<HomeController, BookingController>(
+          builder: (context, controller, booking, _) {
             return SafeArea(
               child: Padding(
                 padding: const EdgeInsets.only(left: 15, right: 15),
@@ -169,51 +174,61 @@ class HomeScreen extends StatelessWidget {
                           children: List.generate(5, (index) {
                             return Padding(
                               padding: const EdgeInsets.only(right: 15),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    padding: const EdgeInsets.all(5),
-                                    width: 85,
-                                    height: 85,
-                                    decoration: BoxDecoration(
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: color.kBlack.withOpacity(0.18),
-                                          blurRadius: 1,
-                                          offset: const Offset(0, 0),
-                                        ),
-                                      ],
-                                      shape: BoxShape.circle,
-                                      gradient: const RadialGradient(
-                                        radius: 0.6,
-                                        colors: [
-                                          Color.fromARGB(255, 255, 239, 186),
-                                          Color.fromARGB(255, 255, 255, 255),
+                              child: GestureDetector(
+                                onTap: () {
+                                  pushRoute(context, controller.screens[index]);
+                                  booking.controller =
+                                      Completer<GoogleMapController>();
+                                },
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      padding: const EdgeInsets.all(5),
+                                      width: 85,
+                                      height: 85,
+                                      decoration: BoxDecoration(
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: color.kBlack.withOpacity(
+                                              0.18,
+                                            ),
+                                            blurRadius: 1,
+                                            offset: const Offset(0, 0),
+                                          ),
                                         ],
+                                        shape: BoxShape.circle,
+                                        gradient: const RadialGradient(
+                                          radius: 0.6,
+                                          colors: [
+                                            Color.fromARGB(255, 255, 239, 186),
+                                            Color.fromARGB(255, 255, 255, 255),
+                                          ],
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: index == 2
+                                            ? EdgeInsets.all(14.0)
+                                            : EdgeInsets.all(10.0),
+                                        child: Image.asset(
+                                          controller.ridesIconsList[index],
+                                          color: color.kBlackSecondary
+                                              .withOpacity(0.9),
+                                        ),
                                       ),
                                     ),
-                                    child: Padding(
-                                      padding: index == 2
-                                          ? EdgeInsets.all(14.0)
-                                          : EdgeInsets.all(10.0),
-                                      child: Image.asset(
-                                        controller.ridesIconsList[index],
-                                        color: color.kBlackSecondary
-                                            .withOpacity(0.9),
-                                      ),
+                                    kHeight5,
+                                    Text(
+                                      controller.typeOfRidesList[index],
+                                      textAlign: TextAlign.center,
+                                      style: FontStyles()
+                                          .randomTextStylePoppins(
+                                            size: 13,
+                                            weight: FontWeight.w600,
+                                            color: color.kBlackSecondary,
+                                          ),
                                     ),
-                                  ),
-                                  kHeight5,
-                                  Text(
-                                    controller.typeOfRidesList[index],
-                                    textAlign: TextAlign.center,
-                                    style: FontStyles().randomTextStylePoppins(
-                                      size: 13,
-                                      weight: FontWeight.w600,
-                                      color: color.kBlackSecondary,
-                                    ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             );
                           }),

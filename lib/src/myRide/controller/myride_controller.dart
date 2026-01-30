@@ -55,7 +55,6 @@ class MyrideController extends ChangeNotifier {
 
   var destinationlng = 55.3061;
 
-  bool mapAlive = false;
   void clearFilters() {
     selectedStatus = null;
     selectedRideType = null;

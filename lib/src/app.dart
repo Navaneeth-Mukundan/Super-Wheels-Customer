@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:super_wheels_customer_app/src/onboarding/view/splash_screen.dart';
 import 'package:super_wheels_customer_app/src/utils/constants/space_helper.dart';
 import 'package:super_wheels_customer_app/src/utils/resource/provider_notifier.dart';
 import 'package:super_wheels_customer_app/src/utils/themes/colors/colors.dart';
-import 'package:super_wheels_customer_app/src/utils/widgets/bottom_navigation.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
           home: Builder(
             builder: (context) {
               ScreenUtil.init(context);
-              return BottomNavigation();
+              return SplashScreen();
             },
           ),
         ),
